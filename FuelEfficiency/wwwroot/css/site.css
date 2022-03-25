@@ -1,0 +1,86 @@
+﻿body {
+    padding: 2em;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #d6e0f0;
+    text-align: center
+}
+
+form {
+    width: 520px;
+    border: 3px solid black;
+    box-shadow: 0 0 10px #F1F3F8;
+    padding: 10px;
+    margin: 50px auto;
+    color: black;
+    background-color: #8D93AB;
+    border-radius: 20px;
+}
+
+button {
+    border: none;
+    background-color: #393b44;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+a {
+    width: 70px;
+    border: none;
+    background-color: #393b44;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+h1 {
+    margin-top: 0;
+    color: black;
+}
+
+ul {
+    list-style-type: none;
+    color: darkred;
+    text-align: left;
+    padding-left: 0;
+    margin-left: 25px;
+}
+
+label {
+    text-align: left;
+    display: inline-block;
+    width: 15em;
+    padding-right: 3em;
+}
+
+div {
+    margin-bottom: .5em;
+}
+
+table, th, td, tr {
+    border-collapse: collapse;
+    padding: 10px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.readOnlyOutput{
+    color: gray;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none !important;
+    margin: 0;
+}

@@ -1,0 +1,79 @@
+﻿@model CarValueModel
+@{
+    ViewBag.Title = "L/KM to M/G Calculator";
+}
+
+<h1>L/KM to M/G Calculator</h1>
+<form asp-action="Index" method="post">
+    <div asp-validation-summary="All"></div>
+    <div>
+        <label asp-for="MakeModel">  Make & Model: </label>
+        <input asp-for="MakeModel" />
+    </div>
+
+    <div>
+        <label asp-for="Year ">  Model Year: </label>
+        <input asp-for="Year " />
+    </div>
+
+    <div>
+        <label asp-for="Kilometers">  Number of Kilometers: </label>
+        <input asp-for="Kilometers" />
+    </div>
+
+    <div>
+        <label asp-for="Liters">  Number of Liters: </label>
+        <input asp-for="Liters" />
+    </div>
+
+
+    <div>
+        <label>Calculate Miles Per Gallon</label>
+        <input class="readOnlyOutput" value="@ViewBag.MPG " readonly />
+    </div>
+
+    <div>
+        <label>Calculate Liters Per Kilometer </label>
+        <input class="readOnlyOutput" value="@ViewBag.LPK" readonly />
+    </div>
+
+    <button type="submit">Calculate</button>
+    <a asp-action="Index">Clear</a>
+</form>
+
+
+<div class="tableOutput">
+    <table>
+        <thead>
+            <tr>
+                <th>Make/Model</th>
+                <th>Year</th>
+                <th>Kilometers</th>
+                <th>Liters</th>
+                <th>Miles per Gallon</th>
+                <th>Liters per 100Km</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                ListContainer lc = TempDataChanger.Get<ListContainer>(TempData, "ListContainer");
+                TempData.Keep("ListContainer");
+            }
+            @if (lc != null && lc.ModelList != null)
+            {
+                foreach (CarValueModel cvm in lc.ModelList)
+                {
+            <tr>
+                <td>@cvm.MakeModel</td>
+                <td>@cvm.Year</td>
+                <td>@cvm.Kilometers</td>
+                <td>@cvm.Liters </td>
+                <td>@String.Format("{0:0.00}", cvm.CalculateMilesPerGallon())</td>
+                <td>@String.Format("{0:0.00}", cvm.CalculateLitersPerKilometer())</td>
+            </tr>
+                }
+            }
+
+        </tbody>
+    </table>
+</div>
